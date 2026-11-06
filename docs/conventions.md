@@ -1,6 +1,6 @@
 # Conventions for eshop-node-api
 
-What the code does not tell you at a glance. Moved here from pkhamdee/modernapp's `docs/agents/conventions.md` when
+What the code does not tell you at a glance. Moved here from pkhamdee/eshop-infra's `docs/agents/conventions.md` when
 eshop-node-api got its own repository (ADR 0009); the system-wide conventions (local environment, deploy, human-only
 steps) are still there.
 
@@ -14,5 +14,5 @@ steps) are still there.
   to test existence: Samba without VSS answers `allinfo` with `NT_STATUS_INVALID_DEVICE_REQUEST`.
 - `/internal/images/...` is never routed by the Gateway; through the Gateway that path returns the SPA's
   `index.html` (200 text/html), so check the content type when verifying image privacy.
-- The share itself (mock Samba, one share per environment) is deployed by pkhamdee/modernapp
-  (`../modernapp/deploy/thirdparty/samba/`).
+- The share itself (mock Samba, one share per environment) is deployed by pkhamdee/eshop-infra
+  (`../eshop-infra/deploy/thirdparty/samba/`).
