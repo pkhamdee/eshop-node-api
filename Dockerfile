@@ -1,10 +1,10 @@
-FROM node:24-alpine AS deps
+FROM node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 # Node 24 runs the TypeScript sources directly (type stripping), so there is no build step.
-FROM node:24-alpine
+FROM node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
 # smbclient talks to the share (SMB3, NTLMv2). apk upgrade picks up Alpine fixes released after the base image.
 # npm/corepack are not needed at runtime: removing them keeps their bundled dependencies out of Trivy's findings.
 RUN apk upgrade --no-cache \
